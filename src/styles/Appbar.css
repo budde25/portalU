@@ -1,7 +1,10 @@
-.title {
-    padding-left: 2em;
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
 }
 
-.flex {
-    flex-grow: 1;
+.text-link:hover {
+    color: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
 }
