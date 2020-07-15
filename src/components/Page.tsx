@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import CardColumns from 'react-bootstrap/CardColumns'
+import Tile from './Tile'
+import '../styles/Page.css'
 
 export enum PageType {
     Tiles,
@@ -14,19 +17,31 @@ export class PageItem {
     }
 }
 
+export class CardItem {
+    title: string;
+    link: string;
+    constructor(title: string, link: string) {
+        this.title = title;
+        this.link = link;
+    }
+}
+
 type IProps = {
     page: PageItem
 };
 type IState = {};
 
 class Page extends Component<IProps, IState>{
+    static cardItems = [new CardItem("Student Center", "https://ebudd.io"), new CardItem("Classes", "https://ebudd.io"),
+                        new CardItem("Search and Enroll", "https://ebudd.io"),new CardItem("Starfish", "https://ebudd.io"),
+                        new CardItem("Piazza", "https://ebudd.io"),new CardItem("Canvas", "https://ebudd.io"),
+                        new CardItem("Calculator", "https://ebudd.io"),new CardItem("Help", "https://ebudd.io")]
     render() {
-        const title = this.props.page.title;
+        //const title = this.props.page.title;
         const type = this.props.page.type;
 
         return (
-            <div className='Page'>
-                <h1>{title}</h1>
+            <div className='page'>
                 {this.renderPage(type)}
             </div>
         );
@@ -41,8 +56,19 @@ class Page extends Component<IProps, IState>{
     }
 
     renderTiles() {
+        const cards = Page.cardItems.map((card: CardItem) => this.createTile(card))
         return(
-            <h2>Tiles</h2>
+            <CardColumns>
+                {cards}
+            </CardColumns>
+        )
+    }
+
+    createTile(card: CardItem) {
+        return (
+            <div>
+                <Tile card={card} key={card.title} />
+            </div>
         )
     }
 
