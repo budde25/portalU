@@ -15,6 +15,7 @@ type IState = {
     menu: PageItem[],
     isAuthenticated: boolean,
     selectedPage: PageItem,
+    searchText: string,
 };
 
 export default class App extends Component<IProps, IState> {
@@ -26,7 +27,9 @@ export default class App extends Component<IProps, IState> {
             menu: App.options,
             isAuthenticated: true,
             selectedPage: App.options[0],
+            searchText: '',
         }
+        this.handleSearchChange = this.handleSearchChange.bind(this);
     }
 
     render() {
@@ -52,7 +55,7 @@ export default class App extends Component<IProps, IState> {
             <Route key={title}
                 path={name} 
                 render={(props) => (
-                    <Page {...props} page={this.state.selectedPage} />
+                    <Page {...props} page={this.state.selectedPage} searchText={this.state.searchText} />
                 )}
             />
         );
@@ -87,13 +90,17 @@ export default class App extends Component<IProps, IState> {
                             </NavDropdown>
                         </Nav>
                         <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2" value={this.state.searchText} onChange={this.handleSearchChange} />
                             <Button variant="outline-success">Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
             </div>
         )
+    }
+
+    handleSearchChange(event: any) {
+        this.setState({searchText: event?.target?.value})
     }
 
     /**

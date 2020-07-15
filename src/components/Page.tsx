@@ -27,7 +27,8 @@ export class CardItem {
 }
 
 type IProps = {
-    page: PageItem
+    page: PageItem,
+    searchText: string,
 };
 type IState = {};
 
@@ -56,7 +57,12 @@ class Page extends Component<IProps, IState>{
     }
 
     renderTiles() {
-        const cards = Page.cardItems.map((card: CardItem) => this.createTile(card))
+        const cardsInSearch = Page.cardItems.filter((card: CardItem) => {
+            const title = card.title.toLowerCase()
+            const search = this.props.searchText.toLowerCase()
+            return title.includes(search)   
+        })
+        const cards = cardsInSearch.map((card: CardItem) => this.createTile(card))
         return(
             <CardColumns>
                 {cards}
