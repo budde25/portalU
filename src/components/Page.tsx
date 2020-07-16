@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import CardColumns from 'react-bootstrap/CardColumns'
 import Tile from './Tile'
 import '../styles/Page.css'
+import data from '../config/cards.json'
 
 export enum PageType {
     Tiles,
@@ -33,10 +33,6 @@ type IProps = {
 type IState = {};
 
 class Page extends Component<IProps, IState>{
-    static cardItems = [new CardItem("Student Center", "https://ebudd.io"), new CardItem("Classes", "https://ebudd.io"),
-                        new CardItem("Search and Enroll", "https://ebudd.io"),new CardItem("Starfish", "https://ebudd.io"),
-                        new CardItem("Piazza", "https://ebudd.io"),new CardItem("Canvas", "https://ebudd.io"),
-                        new CardItem("Calculator", "https://ebudd.io"),new CardItem("Help", "https://ebudd.io")]
     render() {
         //const title = this.props.page.title;
         const type = this.props.page.type;
@@ -57,16 +53,17 @@ class Page extends Component<IProps, IState>{
     }
 
     renderTiles() {
-        const cardsInSearch = Page.cardItems.filter((card: CardItem) => {
+        const cardsInSearch = data.filter((card: CardItem) => {
             const title = card.title.toLowerCase()
             const search = this.props.searchText.toLowerCase()
             return title.includes(search)   
         })
+
         const cards = cardsInSearch.map((card: CardItem) => this.createTile(card))
         return(
-            <CardColumns>
+            <ul className="list-group list-group-horizontal align-items-stretch flex-wrap">
                 {cards}
-            </CardColumns>
+            </ul>
         )
     }
 

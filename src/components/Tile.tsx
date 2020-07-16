@@ -13,17 +13,16 @@ export default class App extends Component<IProps, IState> {
         const title = this.props.card.title;
         const link = this.props.card.link;
         return(
-            <Card>
+            <li className="list-group-item border-0">
+            <Card className="mb-4">
                 <Card.Header className="title">{title}</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                    </Card.Text>
-                </Card.Body>
+                <Card.Img className="img-fluid" src="//placehold.it/500x280">
+                </Card.Img>
                 <Card.Footer>
                     <a href={link}>Launch</a>
                 </Card.Footer>
             </Card>
+            </li>
         )
     }
 }
