@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import Rss from './Rss'
 import Tile from './Tile'
 import '../styles/Page.css'
 import data from '../config/cards.json'
+let Parser = require('rss-parser');
 
 export enum PageType {
     Tiles,
@@ -69,7 +71,7 @@ class Page extends Component<IProps, IState>{
 
     createTile(card: CardItem) {
         return (
-            <div>
+            <div key={card.title}>
                 <Tile card={card} key={card.title} />
             </div>
         )
@@ -77,9 +79,33 @@ class Page extends Component<IProps, IState>{
 
     renderRSS() {
         return(
-            <h2>RSS</h2>
+            <div>
+                {this.createRss}
+            </div>
+        )
+    }
+
+    createRss() {
+        return (
+            <div>
+                <Rss url='fd'/>
+            </div>
         )
     }
 }
+
+let parser = new Parser({
+    headers: {'Access-Control-Allow-Origin': '*'}
+});
+(async () => {
+ 
+    let feed = await parser.parseURL('https://www.reddit.com/.rss');
+    console.log(feed.title);
+   
+    feed.items.forEach((item: any) => {
+      console.log(item.title + ':' + item.link)
+    });
+   
+  })();
 
 export default Page;
