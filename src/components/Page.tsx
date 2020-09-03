@@ -32,9 +32,21 @@ type IProps = {
     page: PageItem,
     searchText: string,
 };
-type IState = {};
+type IState = {
+    itemList: any[],
+    count: number
+};
 
 class Page extends Component<IProps, IState>{
+    constructor(props: IProps) {
+        super(props);
+        this.state = ({
+            itemList: [],
+            count: 0
+        })
+
+    }
+
     render() {
         //const title = this.props.page.title;
         const type = this.props.page.type;
@@ -78,34 +90,38 @@ class Page extends Component<IProps, IState>{
     }
 
     renderRSS() {
+        const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+        let parser = new Parser();
+        let itemList: any[] = [];
+
+        (async () => {
+            let feed = await parser.parseURL(CORS_PROXY + 'https://www.reddit.com/.rss');
+            console.log(feed.title);
+            feed.items.forEach((item: any) => {
+                if (this.state.count < 25) {
+                    this.setState({
+                        itemList: itemList.concat(item),
+                        count: this.state.count + 1
+                    })
+                }
+            });
+        })();
+        const cards = itemList.map((item: any) => this.createTile(item))
         return(
             <div>
-                {this.createRss}
+                {cards}
             </div>
         )
     }
 
-    createRss() {
+    createRss(item: any) {
+        console.log(item.title)
         return (
-            <div>
-                <Rss url='fd'/>
+            <div key={item.title}>
+                <Rss title={item.title} />
             </div>
         )
     }
 }
-
-let parser = new Parser({
-    headers: {'Access-Control-Allow-Origin': '*'}
-});
-(async () => {
- 
-    let feed = await parser.parseURL('https://www.reddit.com/.rss');
-    console.log(feed.title);
-   
-    feed.items.forEach((item: any) => {
-      console.log(item.title + ':' + item.link)
-    });
-   
-  })();
 
 export default Page;

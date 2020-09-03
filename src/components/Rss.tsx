@@ -1,16 +1,19 @@
 import React, { Component } from "react";
+import Card from 'react-bootstrap/Card'
 import '../styles/Rss.css'
 
 type IProps = {
-    url: string
+    title: string
 };
 type IState = {};
 
 export default class Rss extends Component<IProps, IState> {
     render() {
-        const feedUrl = this.props.url;
+        const cardTitle = this.props.title;
         return(
-            <h1>here</h1>
+            <Card className="mb-4">
+                <Card.Header className="title">{cardTitle}</Card.Header>
+            </Card>
         )
     }
 }
