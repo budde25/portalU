@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/portalU/static/css/main.f76c45a0.chunk.css",
+    "main.js": "/portalU/static/js/main.c86d1b54.chunk.js",
+    "main.js.map": "/portalU/static/js/main.c86d1b54.chunk.js.map",
+    "runtime-main.js": "/portalU/static/js/runtime-main.af9f1ce8.js",
+    "runtime-main.js.map": "/portalU/static/js/runtime-main.af9f1ce8.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/portalU/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.be3cf5de.chunk.js": "/portalU/static/js/2.be3cf5de.chunk.js",
+    "static/js/2.be3cf5de.chunk.js.map": "/portalU/static/js/2.be3cf5de.chunk.js.map",
+    "index.html": "/portalU/index.html",
+    "precache-manifest.274532843a100254268e7f6456bab4a8.js": "/portalU/precache-manifest.274532843a100254268e7f6456bab4a8.js",
+    "service-worker.js": "/portalU/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/portalU/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.f76c45a0.chunk.css.map": "/portalU/static/css/main.f76c45a0.chunk.css.map",
+    "static/js/2.be3cf5de.chunk.js.LICENSE.txt": "/portalU/static/js/2.be3cf5de.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af9f1ce8.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.be3cf5de.chunk.js",
+    "static/css/main.f76c45a0.chunk.css",
+    "static/js/main.c86d1b54.chunk.js"
+  ]
+}
