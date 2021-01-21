@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc53fccfadbf0faf96515825a87a2ebf",
+    "revision": "b047ea7d23a00e1ca45660cf236bbd57",
     "url": "/portalU/index.html"
   },
   {
-    "revision": "34e4e9b6640c194fbbfc",
-    "url": "/portalU/static/css/2.2a86faee.chunk.css"
+    "revision": "74b780439d35b06c5260",
+    "url": "/portalU/static/css/2.ff645aaf.chunk.css"
   },
   {
     "revision": "2b363a6766886ef7b9a0",
     "url": "/portalU/static/css/main.f76c45a0.chunk.css"
   },
   {
-    "revision": "34e4e9b6640c194fbbfc",
-    "url": "/portalU/static/js/2.32eeecfc.chunk.js"
+    "revision": "74b780439d35b06c5260",
+    "url": "/portalU/static/js/2.457baea7.chunk.js"
   },
   {
     "revision": "74167855e9509a90530c0e303b7042bf",
-    "url": "/portalU/static/js/2.32eeecfc.chunk.js.LICENSE.txt"
+    "url": "/portalU/static/js/2.457baea7.chunk.js.LICENSE.txt"
   },
   {
     "revision": "2b363a6766886ef7b9a0",
